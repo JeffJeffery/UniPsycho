@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 987469708}
   - component: {fileID: 987469710}
   - component: {fileID: 987469709}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: unicyle_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 1905738609}
   - component: {fileID: 1905738610}
   - component: {fileID: 1905738611}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: unicycle_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

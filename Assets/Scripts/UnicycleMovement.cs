@@ -16,8 +16,9 @@ public class UnicycleMovment : MonoBehaviour
     private HingeJoint2D hinge;
     private JointMotor2D motorTemp;
     private Rigidbody2D bodyRigidBody;
+    private Collider2D wheelCollider;
 
-    private float distanceToGround;
+    //private float distanceToGround;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class UnicycleMovment : MonoBehaviour
         hinge = Unicycle_Wheel.GetComponent<HingeJoint2D>();
         bodyRigidBody = Unicycle_Body.GetComponent<Rigidbody2D>();
 
-        distanceToGround = Unicycle_Wheel.GetComponent<CircleCollider2D>().radius;
+        wheelCollider = Unicycle_Wheel.GetComponent<CircleCollider2D>();
 
         hinge.useMotor = true;
     }
@@ -33,13 +34,13 @@ public class UnicycleMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wheelMovment();
-        rotateBody();
-        jump();
+        WheelMovement();
+        RotateBody();
+        Jump();
     }
 
 
-    void wheelMovment()
+    void WheelMovement()
     {
         //move left, make motor speed negative
         if (Input.GetKey(KeyCode.A))
@@ -62,7 +63,7 @@ public class UnicycleMovment : MonoBehaviour
         hinge.motor = motorTemp;
     }
 
-    void rotateBody()
+    void RotateBody()
     {
         //move left, make motor speed negative
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -81,21 +82,21 @@ public class UnicycleMovment : MonoBehaviour
         }
     }
 
-    void jump()
+    void Jump()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
         }
     }
   
-    bool isGrounded()
+    bool IsGrounded()
     {
-        Debug.Log("Is Grounded run: position:" + Unicycle_Wheel.transform.position);
-        Debug.DrawRay(new Vector3(0, 0, 0), -Vector3.up, Color.green);
-        return Physics.Raycast(Unicycle_Wheel.transform.position, -Vector3.up, distanceToGround + 0.1f);
+        float radius = wheelCollider.bounds.extents.y;
+        //return Physics2D.Raycast((Vector2) wheelCollider.bounds.center + Vector2.down*(radius + .01f), Vector2.down, .01f);
+        return Physics2D.BoxCast((Vector2)wheelCollider.bounds.center, wheelCollider.bounds.size/4, 0f, Vector2.down, wheelCollider.bounds.extents.y + .01f);
     }
 
 
