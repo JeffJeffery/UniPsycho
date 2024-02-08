@@ -105,7 +105,7 @@ public class UnicycleMovment : MonoBehaviour
     {
         float radius = wheelCollider.bounds.extents.y;
         //return Physics2D.Raycast((Vector2) wheelCollider.bounds.center + Vector2.down*(radius + .01f), Vector2.down, .01f);
-        return Physics2D.BoxCast((Vector2)wheelCollider.bounds.center, wheelCollider.bounds.size/4, 0f, -bodyRigidBody.transform.up, wheelCollider.bounds.extents.y + .01f);
+        return Physics2D.BoxCast((Vector2)wheelCollider.bounds.center, wheelCollider.bounds.size/2, 0f, -bodyRigidBody.transform.up, wheelCollider.bounds.extents.y + .01f);
     }
 
 
