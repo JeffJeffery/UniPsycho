@@ -3496,7 +3496,7 @@ MonoBehaviour:
   leanTorque: 15
   correctionTorque: 70
   jumpForce: 20000
-  bodyMoveScaler: 5
+  bodyMoveScaler: 0
 --- !u!1 &1717605447
 GameObject:
   m_ObjectHideFlags: 0
