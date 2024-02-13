@@ -8719,7 +8719,7 @@ MonoBehaviour:
   maxMotorSpeed: 500
   motorInterpolate: 0.5
   leanTorque: 15
-  correctionTorque: 70
+  correctionTorque: 300
   jumpForce: 30000
   bodyMoveScaler: 0
 --- !u!1 &1717605447

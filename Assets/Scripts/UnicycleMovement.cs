@@ -47,12 +47,19 @@ public class UnicycleMovment : MonoBehaviour
         //move left, make motor speed negative
         if (Input.GetKey(KeyCode.A))
         {
-            hinge.useMotor = true;
-            curMotorSpeed = Mathf.Lerp(-maxMotorSpeed, curMotorSpeed, motorInterpolate);
-            bodyRigidBody.AddTorque(bodyMoveScaler * wheelRigitBody.velocity.magnitude);
-            motorTemp = hinge.motor;
-            motorTemp.motorSpeed = curMotorSpeed;
-            hinge.motor = motorTemp;
+            if (Input.GetKey(KeyCode.D))
+            {
+                curMotorSpeed = 0;
+                hinge.useMotor = false;
+            } else
+            {
+                hinge.useMotor = true;
+                curMotorSpeed = Mathf.Lerp(-maxMotorSpeed, curMotorSpeed, motorInterpolate);
+                bodyRigidBody.AddTorque(bodyMoveScaler * wheelRigitBody.velocity.magnitude);
+                motorTemp = hinge.motor;
+                motorTemp.motorSpeed = curMotorSpeed;
+                hinge.motor = motorTemp;
+            }
         }
         //move right, make motor speed postive
         else if (Input.GetKey(KeyCode.D))
