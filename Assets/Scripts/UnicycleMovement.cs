@@ -7,12 +7,14 @@ public class UnicycleMovment : MonoBehaviour
 
     public GameObject Unicycle_Body;
     public GameObject Unicycle_Wheel;
+    public SpringJoint2D Crunch_Joint;
     public float maxMotorSpeed = 500;
     public float motorInterpolate;
     public float leanTorque;
     public float correctionTorque;
     public float jumpForce;
     public float bodyMoveScaler;
+    public float crunchNumber;
 
     private float curMotorSpeed = 0;
     private HingeJoint2D hinge;
@@ -33,9 +35,10 @@ public class UnicycleMovment : MonoBehaviour
         Application.targetFrameRate = 120;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
+        Jump();
         WheelMovement();
         RotateBody();
         Jump();
@@ -46,21 +49,23 @@ public class UnicycleMovment : MonoBehaviour
     void WheelMovement()
     {
         //move left, make motor speed negative
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) & Input.GetKey(KeyCode.D))
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                curMotorSpeed = 0;
-                hinge.useMotor = false;
-            } else
-            {
-                hinge.useMotor = true;
-                curMotorSpeed = Mathf.Lerp(-maxMotorSpeed, curMotorSpeed, motorInterpolate);
-                bodyRigidBody.AddTorque(bodyMoveScaler * wheelRigitBody.velocity.magnitude);
-                motorTemp = hinge.motor;
-                motorTemp.motorSpeed = curMotorSpeed;
-                hinge.motor = motorTemp;
-            }
+
+            curMotorSpeed = 0;
+            hinge.useMotor = false;
+
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+              
+            hinge.useMotor = true;
+            curMotorSpeed = Mathf.Lerp(-maxMotorSpeed, curMotorSpeed, motorInterpolate);
+            bodyRigidBody.AddTorque(bodyMoveScaler * wheelRigitBody.velocity.magnitude);
+            motorTemp = hinge.motor;
+            motorTemp.motorSpeed = curMotorSpeed;
+            hinge.motor = motorTemp;
+            
         }
         //move right, make motor speed postive
         else if (Input.GetKey(KeyCode.D))
@@ -101,8 +106,16 @@ public class UnicycleMovment : MonoBehaviour
 
     void Jump()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Crunch_Joint.frequency = crunchNumber;
+        }
+        else
+        {
+            Crunch_Joint.frequency = 1;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
