@@ -30,6 +30,7 @@ public class UnicycleMovment : MonoBehaviour
         bodyRigidBody = Unicycle_Body.GetComponent<Rigidbody2D>();
         wheelRigitBody = Unicycle_Wheel.GetComponent<Rigidbody2D>();
         wheelCollider = Unicycle_Wheel.GetComponent<CircleCollider2D>();
+        Application.targetFrameRate = 120;
     }
 
     // Update is called once per frame
