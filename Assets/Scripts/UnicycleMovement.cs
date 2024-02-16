@@ -22,6 +22,7 @@ public class UnicycleMovment : MonoBehaviour
     private Rigidbody2D bodyRigidBody;
     private Rigidbody2D wheelRigitBody;
     private Collider2D wheelCollider;
+    private Camera cam;
 
     //private float distanceToGround;
 
@@ -33,6 +34,7 @@ public class UnicycleMovment : MonoBehaviour
         wheelRigitBody = Unicycle_Wheel.GetComponent<Rigidbody2D>();
         wheelCollider = Unicycle_Wheel.GetComponent<CircleCollider2D>();
         Application.targetFrameRate = 120;
+        cam = Camera.main;
     }
 
 
@@ -129,6 +131,11 @@ public class UnicycleMovment : MonoBehaviour
         return Physics2D.BoxCast((Vector2)wheelCollider.bounds.center, wheelCollider.bounds.size/2, 0f, -bodyRigidBody.transform.up, wheelCollider.bounds.extents.y + .01f);
     }
 
+    Vector2 GetCorrectionUp()
+    {
+        Vector2 correction = (Vector2) cam.ScreenToWorldPoint(Input.mousePosition) - wheelRigitBody.position;
+        return correction.normalized;
+    }
 
     void SelfCorrect()
     {
@@ -136,17 +143,10 @@ public class UnicycleMovment : MonoBehaviour
         {
             return;
         }
-        Vector2 CorrectionUp;
-        //If it is grounded, we get the normal
-        RaycastHit2D Output = IsGrounded();
-        if (Output)
-        {
-            CorrectionUp = Output.normal;
-        }
-        else
-        {
-            CorrectionUp = Vector2.up;
-        }
+        Vector2 CorrectionUp = GetCorrectionUp();
+
+        //Debug.DrawRay(wheelRigitBody.position, CorrectionUp * 3, Color.green);
+
         Vector2 PerpComp = Vector3.Project(bodyRigidBody.transform.up, Vector2.Perpendicular(CorrectionUp));
 
         //If PerpComp is positive we need to go to the right
