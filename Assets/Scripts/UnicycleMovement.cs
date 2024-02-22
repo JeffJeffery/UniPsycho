@@ -12,7 +12,11 @@ public class UnicycleMovment : MonoBehaviour
     public float motorInterpolate;
     public float leanTorque;
     public float correctionTorque;
-    public float jumpForce;
+    private float jumpForce;
+    public float minJumpForce;
+    public float maxJumpForce;
+    public float jumpIncrement;
+    private bool holdingJump = false;
     public float bodyMoveScaler;
     public float crunchNumber;
 
@@ -119,16 +123,27 @@ public class UnicycleMovment : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
             Crunch_Joint.frequency = crunchNumber;
+            if (holdingJump == false)
+            {
+                jumpForce = minJumpForce;
+                holdingJump = true;
+            }
+            else
+            {
+                jumpForce = Mathf.Min(jumpForce + jumpIncrement, maxJumpForce);
+            }          
         }
         else
         {
             Crunch_Joint.frequency = 1;
+            holdingJump = false;
         }
 
         if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W)) && IsGrounded())
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
+            Debug.Log(jumpForce);
         }
     }
   
