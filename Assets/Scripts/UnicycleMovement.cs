@@ -86,6 +86,14 @@ public class UnicycleMovment : MonoBehaviour
             hinge.useMotor = false;
         }
 
+        if (Input.GetKey(KeyCode.S))
+        {
+            hinge.useMotor = true;
+            motorTemp = hinge.motor;
+            motorTemp.motorSpeed = 0;
+            hinge.motor = motorTemp;
+        }
+
 
     }
 
