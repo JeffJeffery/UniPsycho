@@ -108,7 +108,7 @@ public class UnicycleMovment : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
             Crunch_Joint.frequency = crunchNumber;
         }
@@ -117,7 +117,7 @@ public class UnicycleMovment : MonoBehaviour
             Crunch_Joint.frequency = 1;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W)) && IsGrounded())
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
