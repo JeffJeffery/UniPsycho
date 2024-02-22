@@ -8,6 +8,8 @@ public class UnicycleMovment : MonoBehaviour
     public GameObject Unicycle_Body;
     public GameObject Unicycle_Wheel;
     public SpringJoint2D Crunch_Joint;
+    public CircleCollider2D Head_Collider;
+    public SpringJoint2D Upright_Joint;
     public float maxMotorSpeed = 500;
     public float motorInterpolate;
     public float leanTorque;
@@ -15,6 +17,8 @@ public class UnicycleMovment : MonoBehaviour
     public float jumpForce;
     public float bodyMoveScaler;
     public float crunchNumber;
+    public float collisionVelocity;
+    public float knockedOutParam;
 
     private float curMotorSpeed = 0;
     private HingeJoint2D hinge;
@@ -23,6 +27,8 @@ public class UnicycleMovment : MonoBehaviour
     private Rigidbody2D wheelRigitBody;
     private Collider2D wheelCollider;
     private Camera cam;
+    private float knockedOutStartTime;
+    
 
     //private float distanceToGround;
 
@@ -35,16 +41,13 @@ public class UnicycleMovment : MonoBehaviour
         wheelCollider = Unicycle_Wheel.GetComponent<CircleCollider2D>();
         Application.targetFrameRate = 120;
         cam = Camera.main;
+        knockedOutStartTime = -knockedOutParam;
     }
 
 
     private void Update()
     {
-        Jump();
-        WheelMovement();
-        RotateBody();
-        Jump();
-        SelfCorrect();
+        handelMovement();
     }
 
 
@@ -168,6 +171,49 @@ public class UnicycleMovment : MonoBehaviour
 
     }
 
+
+    public void headCollisionDetected(Collision2D collision)
+    {
+        Debug.Log("child collided");
+        //if the collision was strong enough, knock him out for some time
+        if (collision.relativeVelocity.magnitude > collisionVelocity)
+        {
+            //set knockedOutTime to knockedOutParam
+            knockedOutStartTime = Time.time;
+        }
+
+    }
+
+    private void handelMovement()
+    {
+        //If we are knocked out, no movment for us and turn off joints
+        if ((knockedOutStartTime + knockedOutParam) >= Time.time)
+        {
+            jointsOff();
+        }
+        //move as normal otherwise
+        else
+        {
+            jointsOn();
+            Jump();
+            WheelMovement();
+            RotateBody();
+            SelfCorrect();
+        }
+
+    }
+
+    private void jointsOff()
+    {
+        Upright_Joint.frequency = 1;
+        curMotorSpeed = 0;
+        hinge.useMotor = false;
+    }
+
+    private void jointsOn()
+    {
+        Upright_Joint.frequency = 100;
+    }
 
 
 }
