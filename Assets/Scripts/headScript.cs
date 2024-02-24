@@ -21,5 +21,17 @@ public class headScript : MonoBehaviour
         transform.parent.transform.parent.GetComponent<UnicycleMovment>().headCollisionDetected(collision);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        transform.parent.transform.parent.GetComponent<UnicycleMovment>().noseCollisionDetected(collision);
+    }
+
+    public void addNose(GameObject nose, float nose_x) {
+        GameObject myNose;
+        myNose =  Instantiate(nose, new Vector3(0, 0, 0), Quaternion.identity);
+        myNose.transform.parent = transform;
+        myNose.transform.localPosition = new Vector3(nose_x, 0, 0);
+    }
+
 
 }

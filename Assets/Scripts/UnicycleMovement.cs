@@ -10,6 +10,7 @@ public class UnicycleMovment : MonoBehaviour
     public SpringJoint2D Crunch_Joint;
     public CircleCollider2D Head_Collider;
     public SpringJoint2D Upright_Joint;
+    public GameObject static_nose_prefab;
     public float maxMotorSpeed = 500;
     public float motorInterpolate;
     public float leanTorque;
@@ -28,6 +29,7 @@ public class UnicycleMovment : MonoBehaviour
     private Collider2D wheelCollider;
     private Camera cam;
     private float knockedOutStartTime;
+    private float nose_x = 0.5f;
     
 
     //private float distanceToGround;
@@ -174,12 +176,23 @@ public class UnicycleMovment : MonoBehaviour
 
     public void headCollisionDetected(Collision2D collision)
     {
-        Debug.Log("child collided");
-        //if the collision was strong enough, knock him out for some time
+
         if (collision.relativeVelocity.magnitude > collisionVelocity)
         {
             //set knockedOutTime to knockedOutParam
             knockedOutStartTime = Time.time;
+        }
+
+    }
+
+    public void noseCollisionDetected(Collider2D collider)
+    {
+        //if the collision was strong enough, knock him out for some time
+        if (collider.tag == "nose")
+        {
+            //add a nose
+            addNose();
+            Destroy(collider.gameObject);
         }
 
     }
@@ -201,6 +214,14 @@ public class UnicycleMovment : MonoBehaviour
             SelfCorrect();
         }
 
+    }
+
+    private void addNose()
+    {
+        Debug.Log("adding NOse, (delete nose too)");
+        this.GetComponentInChildren<headScript>().addNose(static_nose_prefab, nose_x);
+        nose_x += .15f;
+        
     }
 
     private void jointsOff()
