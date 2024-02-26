@@ -1219,7 +1219,9 @@ MonoBehaviour:
   motorInterpolate: 0.5
   leanTorque: 100
   correctionTorque: 300
-  jumpForce: 30000
+  minJumpForce: 5000
+  maxJumpForce: 15000
+  jumpIncrement: 100
   bodyMoveScaler: 0
   crunchNumber: 20
   collisionVelocity: 50
