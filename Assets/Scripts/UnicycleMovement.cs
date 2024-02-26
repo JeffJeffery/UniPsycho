@@ -218,7 +218,6 @@ public class UnicycleMovment : MonoBehaviour
 
     private void addNose()
     {
-        Debug.Log("adding NOse, (delete nose too)");
         this.GetComponentInChildren<headScript>().addNose(static_nose_prefab, nose_x);
         nose_x += .15f;
         
