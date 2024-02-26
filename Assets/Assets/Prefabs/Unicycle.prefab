@@ -173,6 +173,8 @@ GameObject:
   - component: {fileID: 5060073069324160340}
   - component: {fileID: 7781949440069649008}
   - component: {fileID: 194431503484507011}
+  - component: {fileID: 7340714369082741105}
+  - component: {fileID: 1969196519909418062}
   m_Layer: 2
   m_Name: head
   m_TagString: Untagged
@@ -263,7 +265,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 49fb9aea2271c46dd9e62e5009f48cc5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -272,7 +274,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!232 &7781949440069649008
 DistanceJoint2D:
@@ -287,7 +289,7 @@ DistanceJoint2D:
   m_ConnectedRigidBody: {fileID: 6850991826871967710}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_BreakAction: 3
+  m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.008984734, y: -0.13763335}
   m_ConnectedAnchor: {x: 0, y: 0.67}
@@ -307,13 +309,60 @@ DistanceJoint2D:
   m_ConnectedRigidBody: {fileID: 6850991826871967710}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_BreakAction: 3
+  m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.008984734, y: -0.43077588}
   m_ConnectedAnchor: {x: 0, y: 0.51}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_MaxDistanceOnly: 0
+--- !u!58 &7340714369082741105
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735543542839688813}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.50000006
+--- !u!114 &1969196519909418062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735543542839688813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3615dc76f595546a0b98588e262682fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327847453021407083
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +516,7 @@ GameObject:
   - component: {fileID: 178374640090528116}
   - component: {fileID: 6052462052733353056}
   - component: {fileID: 2464551989966964433}
+  - component: {fileID: 7071422762267155806}
   m_Layer: 2
   m_Name: body
   m_TagString: Untagged
@@ -566,7 +616,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &6037187260654282635
 HingeJoint2D:
@@ -629,10 +679,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: -0.44}
+  m_Anchor: {x: 0.1, y: -0.61}
   m_ConnectedAnchor: {x: 0, y: 2.66}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.465903
+  m_Distance: 0.009496212
   m_MaxDistanceOnly: 0
 --- !u!231 &2464551989966964433
 SpringJoint2D:
@@ -655,6 +705,51 @@ SpringJoint2D:
   m_Distance: 0.6
   m_DampingRatio: 1
   m_Frequency: 0
+--- !u!61 &7071422762267155806
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344489279743295018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &3351004648222062953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,12 +1213,17 @@ MonoBehaviour:
   Unicycle_Body: {fileID: 6155364970458266686}
   Unicycle_Wheel: {fileID: 3351004648222062953}
   Crunch_Joint: {fileID: 2464551989966964433}
+  Head_Collider: {fileID: 0}
+  Upright_Joint: {fileID: 178374640090528116}
+  static_nose_prefab: {fileID: 0}
   maxMotorSpeed: 500
   motorInterpolate: 0.5
   leanTorque: 100
   correctionTorque: 300
-  minJumpForce: 5000
-  maxJumpForce: 15000
+  minJumpForce: 10000
+  maxJumpForce: 30000
   jumpIncrement: 100
   bodyMoveScaler: 0
   crunchNumber: 20
+  collisionVelocity: 50
+  knockedOutParam: 1
