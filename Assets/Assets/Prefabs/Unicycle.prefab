@@ -1213,9 +1213,9 @@ MonoBehaviour:
   Unicycle_Body: {fileID: 6155364970458266686}
   Unicycle_Wheel: {fileID: 3351004648222062953}
   Crunch_Joint: {fileID: 2464551989966964433}
-  Head_Collider: {fileID: 0}
+  Head_Collider: {fileID: 7340714369082741105}
   Upright_Joint: {fileID: 178374640090528116}
-  static_nose_prefab: {fileID: 0}
+  static_nose_prefab: {fileID: 2595294333117089341, guid: e8882850a294649bbac509ec676e8af9, type: 3}
   maxMotorSpeed: 500
   motorInterpolate: 0.5
   leanTorque: 100
