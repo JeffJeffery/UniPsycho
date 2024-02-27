@@ -1235,7 +1235,7 @@ MonoBehaviour:
   correctionTorque: 300
   minJumpForce: 10000
   maxJumpForce: 30000
-  jumpIncrement: 100
+  jumpIncrement: 200
   bodyMoveScaler: 0
   crunchNumber: 20
   collisionVelocity: 50
