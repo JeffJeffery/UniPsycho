@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86748736}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2142,7 +2142,7 @@ GameObject:
   - component: {fileID: 275457925}
   - component: {fileID: 275457924}
   - component: {fileID: 275457923}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2285,7 +2285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293272324}
   - component: {fileID: 293272325}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4831,7 +4831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 459374241}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5474,7 +5474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560547201}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7583,7 +7583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 725489421}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7619,7 +7619,7 @@ GameObject:
   - component: {fileID: 751641200}
   - component: {fileID: 751641199}
   - component: {fileID: 751641198}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8478,7 +8478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834276690}
   - component: {fileID: 834276691}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: leaning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8893,7 +8893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 892473390}
   - component: {fileID: 892473391}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9878,7 +9878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 929863798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10503,7 +10503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058251182}
   - component: {fileID: 1058251183}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tip 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10586,7 +10586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069818885}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11505,7 +11505,7 @@ GameObject:
   - component: {fileID: 1120987196}
   - component: {fileID: 1120987195}
   - component: {fileID: 1120987194}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12173,7 +12173,7 @@ GameObject:
   - component: {fileID: 1134696574}
   - component: {fileID: 1134696573}
   - component: {fileID: 1134696572}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13449,7 +13449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209918090}
   - component: {fileID: 1209918091}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: riding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13616,7 +13616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226021231}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14103,7 +14103,7 @@ GameObject:
   - component: {fileID: 1388335920}
   - component: {fileID: 1388335919}
   - component: {fileID: 1388335918}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14246,7 +14246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408837578}
   - component: {fileID: 1408837579}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jumping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14421,7 +14421,7 @@ GameObject:
   - component: {fileID: 1411409334}
   - component: {fileID: 1411409333}
   - component: {fileID: 1411409332}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14640,7 +14640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449764368}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14733,7 +14733,7 @@ GameObject:
   - component: {fileID: 1466341281}
   - component: {fileID: 1466341280}
   - component: {fileID: 1466341279}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15372,7 +15372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1533685018}
   - component: {fileID: 1533685019}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15634,7 +15634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579719052}
   - component: {fileID: 1579719053}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: true
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16958,7 +16958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741045654}
   - component: {fileID: 1741045655}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: glhf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17049,7 +17049,7 @@ GameObject:
   - component: {fileID: 1778326353}
   - component: {fileID: 1778326352}
   - component: {fileID: 1778326351}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17194,7 +17194,7 @@ GameObject:
   - component: {fileID: 1790369503}
   - component: {fileID: 1790369502}
   - component: {fileID: 1790369501}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17425,7 +17425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1822636057}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialText (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
