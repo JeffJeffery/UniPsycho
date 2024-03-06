@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class headScript : MonoBehaviour
 {
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class headScript : MonoBehaviour
     }
 
     public void addNose(GameObject nose, float nose_x) {
+        audioSource.Play();
         GameObject myNose;
         myNose =  Instantiate(nose, new Vector3(0, 0, 0), Quaternion.identity);
         myNose.transform.parent = transform;
