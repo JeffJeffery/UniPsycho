@@ -5,6 +5,7 @@ using UnityEngine;
 public class headScript : MonoBehaviour
 {
     public AudioSource audioSource;
+    public GameObject end;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class headScript : MonoBehaviour
 
     public void addNose(GameObject nose, float nose_x) {
         audioSource.Play();
+        end.GetComponent<SceneChangeTrigger>().noseCount += 1;
         GameObject myNose;
         myNose =  Instantiate(nose, new Vector3(0, 0, 0), Quaternion.identity);
         myNose.transform.parent = transform;

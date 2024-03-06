@@ -6,18 +6,25 @@ using UnityEngine.SceneManagement;
 public class SceneChangeTrigger : MonoBehaviour
 {
     public string targetScene;
+    public string targetSceneTrue;
+    public int noseCount = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("hi");
             ChangeScene();
         }
     }
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene(targetScene);
+        if(noseCount >= 50)
+        {
+            SceneManager.LoadScene(targetSceneTrue);
+        } else
+        {
+            SceneManager.LoadScene(targetScene);
+        }
     }
 }
