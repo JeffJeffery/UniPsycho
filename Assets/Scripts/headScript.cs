@@ -30,7 +30,7 @@ public class headScript : MonoBehaviour
         GameObject myNose;
         myNose =  Instantiate(nose, new Vector3(0, 0, 0), Quaternion.identity);
         myNose.transform.parent = transform;
-        myNose.transform.localPosition = new Vector3(nose_x, 0, 0);
+        myNose.transform.localPosition = new Vector3(0, nose_x, 0);
     }
 
 
