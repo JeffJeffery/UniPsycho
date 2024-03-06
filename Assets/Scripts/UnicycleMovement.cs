@@ -8,6 +8,8 @@ public class UnicycleMovment : MonoBehaviour
     public SpriteRenderer body_SpriteRenderer;
     public SpriteRenderer leg_SpriteRenderer;
     public SpriteRenderer lower_leg_SpriteRenderer;
+    public AudioSource jumpSound;
+    public AudioSource boingSound;
     public GameObject Unicycle_Body;
     public GameObject Unicycle_Wheel;
     public SpringJoint2D Crunch_Joint;
@@ -151,7 +153,7 @@ public class UnicycleMovment : MonoBehaviour
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
-            Debug.Log(jumpForce);
+            jumpSound.Play();
         }
     }
   
@@ -207,6 +209,7 @@ public class UnicycleMovment : MonoBehaviour
         {
             //set knockedOutTime to knockedOutParam
             knockedOutStartTime = Time.time;
+            boingSound.Play();
         }
 
     }
