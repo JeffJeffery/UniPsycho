@@ -11,7 +11,6 @@ public class TriggerZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Hi");
             StartCoroutine(FadeIn());
         }
     }
@@ -20,7 +19,6 @@ public class TriggerZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Bye");
             StartCoroutine(FadeOut());
         }
     }
