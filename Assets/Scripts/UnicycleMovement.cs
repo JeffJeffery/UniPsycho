@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class UnicycleMovment : MonoBehaviour
 {
-
+    public SpriteRenderer head_SpriteRenderer;
+    public SpriteRenderer body_SpriteRenderer;
+    public SpriteRenderer leg_SpriteRenderer;
+    public SpriteRenderer lower_leg_SpriteRenderer;
+    public AudioSource jumpSound;
+    public AudioSource boingSound;
     public GameObject Unicycle_Body;
     public GameObject Unicycle_Wheel;
     public SpringJoint2D Crunch_Joint;
     public CircleCollider2D Head_Collider;
     public SpringJoint2D Upright_Joint;
-    public GameObject static_nose_prefab;
+    public GameObject static_hat_prefab;
     public float maxMotorSpeed = 500;
     public float motorInterpolate;
     public float leanTorque;
@@ -33,7 +38,7 @@ public class UnicycleMovment : MonoBehaviour
     private Collider2D wheelCollider;
     private Camera cam;
     private float knockedOutStartTime;
-    private float nose_x = 0.5f;
+    private float hat_y = 0.4f;
     
 
     //private float distanceToGround;
@@ -155,6 +160,7 @@ public class UnicycleMovment : MonoBehaviour
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
+            jumpSound.Play();
             jumpForce = minJumpForce;
         }
     }
@@ -211,6 +217,7 @@ public class UnicycleMovment : MonoBehaviour
         {
             //set knockedOutTime to knockedOutParam
             knockedOutStartTime = Time.time;
+            boingSound.Play();
         }
 
     }
@@ -248,8 +255,8 @@ public class UnicycleMovment : MonoBehaviour
 
     private void addNose()
     {
-        this.GetComponentInChildren<headScript>().addNose(static_nose_prefab, nose_x);
-        nose_x += .15f;
+        this.GetComponentInChildren<headScript>().addNose(static_hat_prefab, hat_y);
+        hat_y += .2f;
         
     }
 
@@ -258,11 +265,19 @@ public class UnicycleMovment : MonoBehaviour
         Upright_Joint.frequency = 1;
         curMotorSpeed = 0;
         hinge.useMotor = false;
+        head_SpriteRenderer.color = Color.red;
+        body_SpriteRenderer.color = Color.red;
+        leg_SpriteRenderer.color = Color.red;
+        lower_leg_SpriteRenderer.color = Color.red;
     }
 
     private void jointsOn()
     {
         Upright_Joint.frequency = 100;
+        head_SpriteRenderer.color = Color.white;
+        body_SpriteRenderer.color = Color.white;
+        leg_SpriteRenderer.color = Color.white;
+        lower_leg_SpriteRenderer.color = Color.white;
     }
 
 
