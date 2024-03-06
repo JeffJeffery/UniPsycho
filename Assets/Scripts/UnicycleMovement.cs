@@ -54,6 +54,13 @@ public class UnicycleMovment : MonoBehaviour
     private void Update()
     {
         handelMovement();
+        UpdateJumpMeter();
+    }
+
+    void UpdateJumpMeter()
+    {
+        float percentCharged = (jumpForce-minJumpForce)/(maxJumpForce-minJumpForce);
+        JumpMeter.singleton.UpdateChargeMeter(percentCharged);
     }
 
 
@@ -148,7 +155,7 @@ public class UnicycleMovment : MonoBehaviour
         {
             Vector2 jumpVector = bodyRigidBody.transform.up;
             bodyRigidBody.AddForce(jumpVector * jumpForce);
-            Debug.Log(jumpForce);
+            jumpForce = minJumpForce;
         }
     }
   
